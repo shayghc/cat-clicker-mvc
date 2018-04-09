@@ -2,3 +2,4 @@ jasmine/lib
 jasmine/MIT.LICENSE
 jasmine/spec/jasmineJquery.js
 images
+css/normalize.css
