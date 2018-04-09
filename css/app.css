@@ -2,3 +2,46 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-size: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    line-height: 3rem;
+}
+
+.row-container {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: orange;
+}
+
+.col-container {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: white;
+}
+
+.display {
+    display: flex;
+    flex: 4 1 auto;
+    flex-flow: column nowrap;
+    background-color: yellow;
+}
+
+.nameList {
+    display: flex;
+    flex: content 1 auto;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(68, 68, 68);
+    line-height: 2.5rem;
+    color: white;
+}
