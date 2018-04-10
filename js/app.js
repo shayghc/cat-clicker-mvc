@@ -22,7 +22,7 @@ let model = {
         },
         {
             count: 0,
-            name: 'Oppenheimer',
+            name: 'Fermi',
             image: 'images/hidingCat.jpg'
         },
         {
@@ -47,16 +47,23 @@ let controller = {
         displayView.init();
     },
 
+    getArray: function() {
+        return model.catArray;
+    },
+
     getWhichCat: function() {
         return model.focusCat;
     },
 
     getImage: function() {
-        console.log(model.focusCat.image);
         return model.focusCat.image;
     },
     getCurrentCount: function() {
         return model.focusCat.count;
+    },
+
+    getName: function(i) {
+        return model.catArray[i].name;
     }
 };
 
@@ -71,13 +78,28 @@ let controller = {
 let listView = {
     // Initialise the view.
     init: function() {
+        // Capture/create DOM elements
+        this.list = controller.getArray();
 
-    }
-    // Create the buttons.
+        // Create the buttons.
+        for(let i = 0; i < this.list.length; i++) {
+            let newButton = document.createElement('button');
+            let target = document.querySelector('ul');
+            newButton.textContent = controller.getName(i);
+            this.render(newButton);
+        }
+        //this.render();
+    },
+
+
     // Assign the event listeners.
 
     // Render the display.
-
+    render: function(newButton) {
+        this.element = document.querySelector('ul');
+        this.element.appendChild(newButton);
+        return;
+    }
 };
 
 // Initialise the view: Cat name, cat image and click count.
@@ -98,7 +120,7 @@ let displayView = {
         // Image
         this.displayImage.src = controller.getImage();
         // Count display
-        this.count.textContent = 'Total clicks on this cat = ' + this.total;
+        this.count.textContent = `Total clicks on this cat = ${this.total}`;
     }
 
 };

@@ -8,19 +8,19 @@ body {
     max-width: 960px;
     margin: 0 auto;
     font-family: 'Roboto', 'Arial', sans-serif;
+    background-color: black;
 }
 
 header {
     text-align: center;
-    line-height: 4rem;
+    line-height: 3rem;
     background-color: rgb(181, 181, 181);
 }
 
 .row-container {
     display: flex;
     flex-flow: row wrap;
-    min-height: 300px;
-    width: auto;
+    width: 100%;
 }
 
 .col-container {
@@ -30,17 +30,18 @@ header {
 
 .display {
     display: flex;
-    flex: 4 1 auto;
+    flex: 0 1 auto;
     flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
-    padding: 30px;
     background-color: rgb(240, 240, 240);
+    width: 75%;
 }
 
 .catImage {
-    height: 350px;
-    width: auto;
+    height: auto;
+    width: 70%;
+    max-width: 700px;
     margin: 0 20px;
     border-radius: 30px;
     box-shadow: 7px 7px 15px rgb(97, 97, 97);
@@ -48,13 +49,53 @@ header {
 
 .nameList {
     display: flex;
-    padding: 5px;
-    flex: content 1 auto;
+    align-items: center;
+    flex: 0 1 auto;
     background-color: rgb(244, 252, 215);
+    width: 25%;
+    padding-top: 2rem;
 }
 
 .counter, .catName {
     line-height: 3rem;
+    padding: 20px 0;
+}
+
+ul {
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 0 1 auto;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+button {
+  background: #67bffa;
+  background-image: -webkit-linear-gradient(top, #67bffa, #003454);
+  background-image: -moz-linear-gradient(top, #67bffa, #003454);
+  background-image: -ms-linear-gradient(top, #67bffa, #003454);
+  background-image: -o-linear-gradient(top, #67bffa, #003454);
+  background-image: linear-gradient(to bottom, #67bffa, #003454);
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  min-width: 80%;
+}
+
+button:hover {
+  background: #067eba;
+  background-image: -webkit-linear-gradient(top, #067eba, #012c5c);
+  background-image: -moz-linear-gradient(top, #067eba, #012c5c);
+  background-image: -ms-linear-gradient(top, #067eba, #012c5c);
+  background-image: -o-linear-gradient(top, #067eba, #012c5c);
+  background-image: linear-gradient(to bottom, #067eba, #012c5c);
+  text-decoration: none;
 }
 
 footer {
