@@ -12,7 +12,7 @@ body {
 
 header {
     text-align: center;
-    line-height: 2rem;
+    line-height: 4rem;
     background-color: rgb(181, 181, 181);
 }
 
@@ -32,12 +32,29 @@ header {
     display: flex;
     flex: 4 1 auto;
     flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    background-color: rgb(240, 240, 240);
+}
+
+.catImage {
+    height: 350px;
+    width: auto;
+    margin: 0 20px;
+    border-radius: 30px;
+    box-shadow: 7px 7px 15px rgb(97, 97, 97);
 }
 
 .nameList {
     display: flex;
     padding: 5px;
     flex: content 1 auto;
+    background-color: rgb(244, 252, 215);
+}
+
+.counter, .catName {
+    line-height: 3rem;
 }
 
 footer {
