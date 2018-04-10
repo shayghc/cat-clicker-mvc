@@ -64,6 +64,10 @@ let controller = {
 
     getName: function(i) {
         return model.catArray[i].name;
+    },
+
+    setFocusCat: function(cat) {
+        model.focusCat = cat;
     }
 };
 
@@ -86,20 +90,23 @@ let listView = {
             let newButton = document.createElement('button');
             let target = document.querySelector('ul');
             newButton.textContent = controller.getName(i);
-            this.render(newButton);
+            this.render(newButton, i);
         }
     },
 
-
-    // Assign the event listeners.
-
     // Render the display.
-    render: function(newButton) {
+    render: function(newButton, index) {
+        let elem = controller.getArray();
         this.element = document.querySelector('ul');
         this.element.appendChild(newButton);
-        newButton.addEventListener('click', function() {
-            // Code here!
-        });
+
+        // Assign the event listeners.
+        newButton.addEventListener('click', (function(cat) {
+            return function() {
+                controller.setFocusCat(cat);
+                displayView.render();
+            };
+        })(elem[index]));
         return;
     }
 };
