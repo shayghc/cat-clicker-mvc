@@ -88,7 +88,6 @@ let listView = {
             newButton.textContent = controller.getName(i);
             this.render(newButton);
         }
-        //this.render();
     },
 
 
@@ -98,6 +97,9 @@ let listView = {
     render: function(newButton) {
         this.element = document.querySelector('ul');
         this.element.appendChild(newButton);
+        newButton.addEventListener('click', function() {
+            // Code here!
+        });
         return;
     }
 };
@@ -116,7 +118,7 @@ let displayView = {
     render: function() {
         this.total = controller.getCurrentCount();
         // Heading (cat's name)
-        this.displayName.textContent = controller.getWhichCat().name;
+        this.displayName.textContent = `"${controller.getWhichCat().name}"`;
         // Image
         this.displayImage.src = controller.getImage();
         // Count display

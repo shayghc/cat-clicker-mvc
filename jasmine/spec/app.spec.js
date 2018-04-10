@@ -1,5 +1,5 @@
 describe('The cat objects array', function() {
-    let obj = catObj;
+    let obj = catArray;
 
     it('should be defined', function() {
         expect(obj).toBeDefined();
@@ -16,11 +16,11 @@ describe('The cat objects array', function() {
 
         (function() {
             it('should contain a url property containing a path for a .jpg file', function() {
-                expect(image).toEqual(catObj[i]['url']);
+                expect(image).toEqual(obj[i]['url']);
             });
 
             it('should contain a name property containing a string', function() {
-                expect(name).toEqual(catObj[i]['name']);
+                expect(name).toEqual(obj[i]['name']);
             });
         })(obj[i]);
     }
