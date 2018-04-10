@@ -7,34 +7,36 @@ body {
     font-size: 16px;
     max-width: 960px;
     margin: 0 auto;
+    font-family: 'Roboto', 'Arial', sans-serif;
 }
 
 header {
     text-align: center;
-    line-height: 3rem;
+    line-height: 2rem;
+    background-color: rgb(181, 181, 181);
 }
 
 .row-container {
     display: flex;
     flex-flow: row wrap;
-    background-color: orange;
+    min-height: 300px;
+    width: auto;
 }
 
 .col-container {
     display: flex;
     flex-flow: column nowrap;
-    background-color: white;
 }
 
 .display {
     display: flex;
     flex: 4 1 auto;
     flex-flow: column nowrap;
-    background-color: yellow;
 }
 
 .nameList {
     display: flex;
+    padding: 5px;
     flex: content 1 auto;
 }
 

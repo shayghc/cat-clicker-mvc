@@ -1,30 +1,36 @@
-'use strict';
-
 /*
  * Model construct *************************************************************
  * Set the cat objects array
  */
 let model = {
-    // Set objects array here.
-    let count = 0,
-    catArray = [];
-    const catNames = ['Feynman', 'Oppenheimer', 'Frisch', 'Zazzles', 'Fermi'];
-    // Royalty free images from https://www.pexels.com
-    const catImages = ['images/catInBag.jpg', 'catInChair.jpg', 'greyCat.jpg', 'hidingCat.jpg', 'relaxedCat.jpg'];
-
-    // allCats constructor declaration.
-    class Cat {
-        constructor(name, image, count) {
-        this.name = name;
-        this.url = image;
-        this.count = count;
+    focusCat: null,
+    catArray: [
+        {
+            count: 0,
+            name: 'Feynman',
+            image: 'images/catInBag.jpg'
+        },
+        {
+            count: 0,
+            name: 'Oppenheimer',
+            image: 'images/catInChair.jpg'
+        },
+        {
+            count: 0,
+            name: 'Frisch',
+            image: 'images/greyCat.jpg'
+        },
+        {
+            count: 0,
+            name: 'Oppenheimer',
+            image: 'images/hidingCat.jpg'
+        },
+        {
+            count: 0,
+            name: 'Zazzles',
+            image: 'images/relaxedCat.jpg'
         }
-    }
-
-    // Create cat objects with name, image and own counter.
-    for (let i = 0; i < catNames.length; i++) {
-        catArray[i] = new Cat(catNames[i], catImages[i], count);
-    }
+    ]
 };
 
 
@@ -32,8 +38,28 @@ let model = {
  * Controller construct *******************************************************
  */
 let controller = {
- // Code here for driving the programme.
+    // Initialise the display set up
+    init: function() {
+        model.focusCat = model.catArray[0];
+
+        // Invoke view functions
+        listView.init();
+        displayView.init();
+    },
+
+    getWhichCat: function() {
+        return model.focusCat;
+    },
+
+    getImage: function() {
+        console.log(model.focusCat.image);
+        return model.focusCat.image;
+    },
+    getCurrentCount: function() {
+        return model.focusCat.count;
+    }
 };
+
 
 
 /*
@@ -44,6 +70,9 @@ let controller = {
  */
 let listView = {
     // Initialise the view.
+    init: function() {
+
+    }
     // Create the buttons.
     // Assign the event listeners.
 
@@ -51,11 +80,26 @@ let listView = {
 
 };
 
-
+// Initialise the view: Cat name, cat image and click count.
 let displayView = {
-    // Initialise the view: Cat name, cat image and click count.
 
+    init: function() {
+        this.displayName = document.querySelector('.catName');
+        this.displayImage = document.querySelector('.catImage');
+        this.count = document.querySelector('.counter');
+
+        this.render();
+    },
     // Render the display.
+    render: function() {
+        this.total = controller.getCurrentCount();
+        // Heading (cat's name)
+        this.displayName.textContent = controller.getWhichCat().name;
+        // Image
+        this.displayImage.src = controller.getImage();
+        // Count display
+        this.count.textContent = 'Total clicks on this cat = ' + this.total;
+    }
 
 };
 
