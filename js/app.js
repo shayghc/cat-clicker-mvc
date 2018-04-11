@@ -58,6 +58,7 @@ let controller = {
     getImage: function() {
         return model.focusCat.image;
     },
+
     getCurrentCount: function() {
         return model.focusCat.count;
     },
@@ -68,9 +69,13 @@ let controller = {
 
     setFocusCat: function(cat) {
         model.focusCat = cat;
+    },
+
+    incrementCounter: function() {
+        model.focusCat.count++;
+        displayView.render();
     }
 };
-
 
 
 /*
@@ -111,16 +116,25 @@ let listView = {
     }
 };
 
-// Initialise the view: Cat name, cat image and click count.
+
+// Initialise the view: cat name, cat image and click count.
 let displayView = {
 
     init: function() {
+        //Create pointers
         this.displayName = document.querySelector('.catName');
         this.displayImage = document.querySelector('.catImage');
+        console.log(this.displayImage);
         this.count = document.querySelector('.counter');
+
+        // Set event handler for click counter
+        this.displayImage.addEventListener('click', function() {
+            controller.incrementCounter();
+        });
 
         this.render();
     },
+
     // Render the display.
     render: function() {
         this.total = controller.getCurrentCount();
@@ -131,7 +145,6 @@ let displayView = {
         // Count display
         this.count.textContent = `Total clicks on this cat = ${this.total}`;
     }
-
 };
 
 
